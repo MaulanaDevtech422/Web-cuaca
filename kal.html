@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="calculatorstyle.css">
+  </link>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https: //cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https: //cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+  <!-- Popper JS -->
+  <scrip src="https: //cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https: //cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+</head>
+<style>
+ * {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+ font-family: 'Poppins',sans-serif;
+ }
+
+/* styling the calculator body */
+#calculator,
+.container {
+  position: relative;
+  background-color: white;
+  max-width: 320px;
+  height: 600px;
+  margin: auto;
+  text-align: center;
+  border: none;
+  border-radius: 42px;
+  box-shadow: -13px -13px 26px #dadada, 13px 13px 26px #fff, -12px -12px 24px #dadada inset, -12px -12px 24px #fff inset;
+}
+
+#calculator #time {
+  position: absolute;
+  top: 12px;
+  left: 45px;
+  display: inline;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#calculator .top-icons {
+  display: inline;
+  position: absolute;
+  top: 12px;
+  right: 28px;
+}
+
+#calculator .top-icons i {
+  padding-left: 4px;
+}
+
+#screen {
+  background-color: inherit;
+  height: 100px;
+  width: 90%;
+  font-size: 20px;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  text-align: right;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 24px;
+  opacity: 0.6;
+  box-shadow: 3px 3px 10px #dadada inset, -3px 3px 10px #fff inset;
+}
+
+#screen:focus {
+  border: none;
+  outline: none;
+}
+
+.btn-group {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.btn-group .btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 16px;
+  margin: 0px 6px;
+  border: none;
+  border-radius: 20px !important;
+  cursor: pointer;
+}
+
+.btn-group .clear {
+  position: relative;
+  max-width: 6rem !important;
+  background-color: green !important;
+  color: white !important;
+}
+
+.btn-group .clear:hover {
+  background-color: red !important;
+  color: white !important;
+}
+
+.btn-group i {
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  top: 25px;
+  left: 30px;
+}
+
+input.black {
+  background-color: #000;
+  color: #fff;
+
+}
+
+input.black:hover {
+  background-color: #333;
+  color: #fff;
+  transition: .4s;
+}
+
+input:not(.black):not(#screen) {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 5px 5px 12px #dadada, -5px -5px 12px #fff;
+}
+
+input:not(.black):not(#screen):hover {
+  background-color: #ddd;
+  color: #000;
+  transition: .4s;
+}
+
+.attribution {
+  padding-top: 32px;
+  font-weight: bold;
+}
+
+.attribution i.fa-heart {
+  color: red;
+}
+a{
+  font-size: 15px ;
+  color :#B60085 ;
+}
+
+
+</style>
+
+<body >
+ <!--Calculator body-->
+  <form class="container" id="calculator">
+    <span id="time"></span>
+    <div class="top-icons">
+      <i class="fa fa-signal"></i>
+      <i class="fa fa-wifi"></i>
+      <i class="fa fa-battery-half"></i>
+    </div>
+    <input type="text" name="input" placeholder="MaulanaCalc " value="" id="screen" size="20" readonly>
+    <br>
+    <div class="btn-group">
+      <input class="btn clear" type="button" name="clear" value="CLR" onclick="calculator.input.value = ''">
+      <i class="fas fa-backspace"></i>
+    </div>
+    <div class="btn-group">
+      <input class="btn" type="button" name="one" value="1" onclick="calculator.input.value += '1'">
+      <input class="btn" type="button" name="two" value="2" onclick="calculator.input.value += '2'">
+      <input class="btn" type="button" name="three" value="3" onclick="calculator.input.value += '3'">
+      <input class=" btn black" type="button" name="plus" value="+" onclick="calculator.input.value += '+'">
+    </div>
+    <div class="btn-group">
+      <input class="btn" type="button" name="four" value="4" onclick="calculator.input.value += '4'">
+      <input class="btn" type="button" name="five" value="5" onclick="calculator.input.value += '5'">
+      <input class="btn" type="button" name="six" value="6" onclick="calculator.input.value += '6'">
+      <input class=" btn black" type="button" name="minus" value="-" onclick="calculator.input.value += '-'">
+    </div>
+    <div class="btn-group">
+      <input class="btn" type="button" name="seven" value="7" onclick="calculator.input.value += '7'">
+      <input class="btn" type="button" name="eight" value="8" onclick="calculator.input.value += '8'">
+      <input class="btn" type="button" name="nine" value="9" onclick="calculator.input.value += '9'">
+      <input class="btn black" type="button" name="times" value="*" onclick="calculator.input.value += '*'">
+    </div>
+    <div class="btn-group">
+      <input class="btn black" type="button" name="dot" value="." onclick="calculator.input.value += '.'">
+      <input class="btn black" type="button" name="zero" value="0" onclick="calculator.input.value += '0'">
+      <input class="btn black" type="button" name="equals" value="=" onclick="calculator.input.value = eval(calculator.input.value)">
+      <input class="btn black" type="button" name="divide" value="/" onclick="calculator.input.value += '/'">
+    </div>
+    <p class="attribution"></i> By
+    <a href="https://www.instagram.com/maulanaa_422/">maulanadevcode</a>
+    </p>
+  </form>
+  <script type="text/javascript">''
+    var a = new Date();
+    var b = new Date();
+    var c = new Date();
+    document.getElementById("time").innerHTML = a.getHours() + ":" + b.getMinutes() + ":" + a.getSeconds();
+  </script>
+</body>
+</html>

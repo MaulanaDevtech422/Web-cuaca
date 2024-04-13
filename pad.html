@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+ <title></title>
+ <style>
+  body {
+   font-family: 'Poppins', sans-serif;
+  }
+ </style>
+ 
+</head>
+
+<body>
+<div id="grafik"></div>
+</body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+ Highcharts.chart('grafik', {
+  chart: {
+   type: 'bar'
+  },
+  title: {
+   text: 'Grafik Pertumbuhan Tanaman'
+  },
+  xAxis: {
+   categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des']
+  },
+  yAxis: {
+   min: 0,
+   title: {
+    text: 'Jumlah Tanaman (Ekor)'
+   }
+  },
+  legend: {
+   reversed: true
+  },
+  plotOptions: {
+   series: {
+    stacking: 'normal'
+   }
+  },
+  series: [{
+   name: 'Padinetes',
+   data: [500, 700, 800, 1000, 1200, 1500, 1700, 1800, 2000, 2200, 2500, 2800]
+     }, {
+   name: 'Sayuran',
+   data: [200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300]
+     }]
+ });
+</script>
+
+</html>

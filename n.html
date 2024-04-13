@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  
+        
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+    
+    <title>Agricultural Dashboard</title>
+    <style>
+    body {
+     font-family: 'Poppins', sans-serif;
+     background-color :#C0DBFF;
+    }
+        
+ .footer {
+ font-family: 'Poppins', sans-serif;
+}
+.temp {
+ border-radius: 10px;
+ background-color: #012443;
+ color: rgb(211, 211, 211);
+ display: inline-block;
+ padding: 5px 8px;
+}
+
+body {
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 100vh;
+ overflow-y: hidden;
+}
+
+.footer {
+ width: 100%;
+ height: 70px;
+ background-color: #012443;
+ color: white;
+ position: fixed;
+ bottom: 0;
+ text-align: center;
+ font-family: 'Poppins', sans-serif;
+ padding-top: 8px;
+}
+
+.footer h6 {
+ font-weight: 200;
+}
+
+.footer span {
+ color: crimson ;
+}
+.footer .a {
+ color :#00DDFF;
+}
+        .dashboard {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            
+        }
+        .card {
+            width: 300px;
+            padding: 20px;
+            margin: 20px;
+            background-color: #f1f1f1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 15px ;
+            text-align :center ;
+            align-items: center 
+        }
+        .card h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  navbar-dark " style="background-color :#012443">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#container" style="color :orange"><b>WeatherChek </b> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html" style="color : ">Dashboard</a>
+        </li>
+       
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color :">
+            Menu
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://maps.app.goo.gl/vF1FreVGodkHDmiq8" style="color :#009940">maps</a></li>
+            <li><a class="dropdown-item" href="n.html" style="color :#009940">Another action</a></li>
+           
+          </ul>
+        </li>
+       
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-radius :6px ">
+        <button class="btn  bg-warning" type="submit" style="color: white ;border-radius :6px;">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    <div class="dashboard">
+        <div class="card" >
+            <h2>Suhu</h2>
+            <p id="temperature"></p>
+        </div>
+        <div class="card">
+            <h2>Kelembaban</h2>
+            <p id="humidity"></p>
+        </div>
+        <div class="card">
+            <h2>Deskripsi Cuaca</h2>
+            <p id="weatherDescription"></p>
+        </div>
+    </div>
+      <div class="footer">
+       <h6 style="color :white ">Made with <span>&#10084;</span>by <b>MaulanaDevtech</b> </h6>Api by
+       <a href="https://openweathermap.org/weather-dashboard" style="color :orange">openweathermap.org</a> </h3>
+      </div>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+    <script>
+        const apiKey = '874fe78f9ecb547104c5afc4764b6514';
+        const city = 'Pemalang  ';
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric` ;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const temperature = data.main.temp;
+                const humidity = data.main.humidity;
+                const weatherDescription = data.weather[0].description;
+
+                document.getElementById('temperature').textContent = `🌡️${temperature}°C`;
+                document.getElementById('humidity').textContent = `Kelembaban: ${humidity}%`;
+                document.getElementById('weatherDescription').textContent = `Cuaca: ${weatherDescription}`;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+/* untuk mengubah font dari seluruh elemen */
+body {
+ font-family: 'Poppins', sans-serif;
+}
+
+/* untuk mengubah font dari elemen tertentu */
+.nav {
+ font-family: 'Poppins', sans-serif;
+}
+
+.footer {
+ font-family: 'Poppins', sans-serif;
+}
+.temp {
+ border-radius: 10px;
+ background-color: #012443;
+ color: rgba(211, 211, 211, 1);
+ display: inline-block;
+ padding: 5px 8px;
+}
+
+body {
+ background-repeat: no-repeat;
+ background-size: cover;
+ height: 100vh;
+ overflow-y: hidden;
+}
+
+.footer {
+ width: 100%;
+ height: 70px;
+ background-color: #012443;
+ color: white;
+ position: fixed;
+ bottom: 0;
+ text-align: center;
+ font-family: 'Poppins', sans-serif;
+ padding-top: 8px;
+}
+
+.footer h6 {
+ font-weight: 200;
+}
+
+.footer span {
+ color: crimson;
+}
+.footer .a {
+ color :#00DDFF;
+}
+.row .map{
+ height: 30rem;
+ width :0rem;
+display:block;
+margin:auto;
+}
